@@ -19,32 +19,32 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <?php $i = 0;
-                        foreach ($data as $member) : ?>
+                        <?php $i = 0; ?>
+                        @foreach($data as $member)
                         <tr class="text-center">
-                            <td class="align-middle"><?= ++$i ?></td>
-                            <?php if ($member['photo'] != null) : ?>
+                            <td class="align-middle">{{ ++$i }}</td>
+                            @if ($member['photo'] != null)
                             <td class="td-photo">
                                 <div class="box">
-                                    <img class="profile-img rounded-circle" src="public/images/<?=$member['photo']; ?>">
+                                    <img class="profile-img rounded-circle" src="public/images/{{$member['photo']}}">
                                 </div>
                             </td>
-                            <?php else : ?>
+                            @else
                             <td class="td-photo">
                                 <div class="box">
                                     <img class="img rounded-circle" src="public/images/default.jpg">
                                 </div>
 
                             </td>
-                            <?php endif; ?>
+                            @endif
 
 
-                            <td class="align-middle mw-30"><?= $member['firstname'] . " " . $member['lastname'] ?></td>
-                            <td class="align-middle mw-30"><?= $member['rep_subject'] ?></td>
-                            <td class="align-middle mw-20"><a href="<?= 'mailto:' . $member['email']?>"> <?=$member['email']?></a></td>
+                            <td class="align-middle mw-30">{{ $member['firstname'] . " " . $member['lastname'] }}</td>
+                            <td class="align-middle mw-30">{{ $member['rep_subject'] }}</td>
+                            <td class="align-middle mw-20"><a href="{{ 'mailto:' . $member['email']}}"> {{$member['email']}}</a></td>
                         </tr>
 
-                        <?php endforeach; ?>
+                        @endforeach
                         </tbody>
                     </table>
                 </div>
