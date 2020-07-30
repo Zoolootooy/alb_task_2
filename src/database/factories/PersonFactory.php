@@ -18,4 +18,5 @@ $factory->define(Person::class, function (Faker $faker) {
         'email' => $faker->email,
         'show' => $faker->boolean
     ];
+
 });

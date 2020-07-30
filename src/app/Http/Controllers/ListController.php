@@ -11,9 +11,10 @@ class ListController extends Controller
 
     public function index()
     {
-        $persons = Person::paginate(20);
+        $members = Person::paginate(20);
 
-        return response()->view('list', ['data' => $persons]);
+
+        return response()->view('list', compact('members'));
     }
 
 }
