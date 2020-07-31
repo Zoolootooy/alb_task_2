@@ -15,5 +15,6 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', 'MainController@index')->name('main');
-
 Route::get('/members_list', 'ListController@index');
+Route::post('/saveData', array('before'=>'csrf-ajax', 'as'=>'test', 'uses'=>'MainController@saveData'));
+

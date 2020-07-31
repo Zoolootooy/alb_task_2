@@ -19,13 +19,13 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Country whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Country whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property \Illuminate\Support\Carbon|null $createdAt
+ * @property \Illuminate\Support\Carbon|null $updatedAt
  */
 class Country extends Model
 {
     protected $fillable = [
         'id',
-        'name',
-        'ISO2',
-        'ISO3'
+        'name'
     ];
 }

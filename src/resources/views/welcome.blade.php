@@ -3,11 +3,11 @@
 @section('content')
     @include('map')
 
-    @if(true)
+
         @include('firstForm')
-    @else
         @include('secondForm')
-    @endif
+        @include('socialNetworks')
+
 
 
 @endsection

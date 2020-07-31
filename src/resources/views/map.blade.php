@@ -10,6 +10,6 @@
 </div>
 
 <script src="{{ asset('js/map.js') }}"></script>
-<script src="{{ asset('js/app.js') }}"></script>
+
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAk10RdU1wJJ7UZnIZj8XBuVQopBvicRPE&callback=initMap"
         async defer></script>

@@ -1,5 +1,5 @@
 <div class="container">
-    <form id="first" name="first" method="post" enctype="multipart/form-data">
+    <form id="first" name="first"  method="POST" enctype="multipart/form-data">
         @csrf
         <div class="row">
             <div class="col-8 offset-2">
@@ -34,8 +34,8 @@
 
         <div class="row">
             <div class="col-12 form-group">
-                <label for="rep_subj">Report subject</label>
-                <input id="rep_subj" class="form-control shadow-sm" type="text" name="rep_subj"
+                <label for="rep_subject">Report subject</label>
+                <input id="rep_subject" class="form-control shadow-sm" type="text" name="rep_subject"
                        placeholder="Report subject" required>
             </div>
         </div>
@@ -44,10 +44,10 @@
             <div class="col-12 form-group">
                 <label for="country_id">Choose county</label>
                 <select class="form-control shadow-sm" id="country_id" name="country_id" required>
-                    <option></option>
-                    {{--            <?php foreach ($countries as $country): ?>--}}
-                    {{--            <option value='<?= $country['id']; ?>'><?= $country['name']; ?> </option>--}}
-                    {{--            <?php endforeach; ?>--}}
+                    <option ></option>
+                    @foreach($countries as $country)
+                        <option value="{{$country->id}}">{{$country->name}}</option>
+                    @endforeach
                 </select>
             </div>
         </div>
