@@ -11,7 +11,7 @@ class ListController extends Controller
 
     public function index()
     {
-        $members = Person::paginate(20);
+        $members = Person::where('show', '=', 1)->paginate(20);
 
 
         return response()->view('list', compact('members'));
