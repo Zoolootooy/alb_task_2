@@ -1,0 +1,26 @@
+.box {
+    position: relative;
+    width:100px;
+    height:100px;
+    /*transform: translate(0%, 0%);*/
+}
+
+.box img {
+    width:100px;
+    height:100px;
+    object-fit:cover;
+}
+
+.td-photo{
+    width: 125px;
+}
+
+.td-rep_subj {
+    max-width: 30%;
+}
+
+//.iti__flag {background-image: url("path/to/flags.png");}
+//
+//@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+//    .iti__flag {background-image: url("path/to/flags@2x.png");}
+//}

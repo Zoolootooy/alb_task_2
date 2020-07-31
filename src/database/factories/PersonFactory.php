@@ -19,9 +19,8 @@ $factory->define(Person::class, function (Faker $faker) {
         'company' => $faker->company,
         'position' => $faker->jobTitle,
         'about' => $faker->realText($maxNbChars = 100, $indexSize = 2),
-        'show' => $faker->boolean
-
-
+        'show' => $faker->boolean,
+        'photo' => $faker->imageUrl(500,500)
     ];
 
 });

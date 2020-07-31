@@ -26,13 +26,19 @@
                             @if ($member['photo'] != null)
                             <td class="td-photo">
                                 <div class="box">
-                                    <img class="profile-img rounded-circle" src="public/images/{{$member->photo}}">
+{{--                                    <img class="profile-img rounded-circle" src="public/images/{{$member->photo}}">--}}
+                                    @if(preg_match('/^(https?)+[a-z, A-Z, 0-9, \/, \?, \:, \.]+$/', $member->photo) == 1)
+                                        <img class="profile-img rounded-circle" src="{{$member->photo}}">
+                                    @else()
+                                        <img class="profile-img rounded-circle" src="storage/images/{{$member->photo}}">
+                                    @endif
+
                                 </div>
                             </td>
                             @else
                             <td class="td-photo">
                                 <div class="box">
-                                    <img class="img rounded-circle" src="public/images/default.jpg">
+                                    <img class="img rounded-circle" src="../storage/default.jpg">
                                 </div>
 
                             </td>

@@ -29,3 +29,25 @@
   color: white;
 }
 
+.box {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  /*transform: translate(0%, 0%);*/
+}
+
+.box img {
+  width: 100px;
+  height: 100px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.td-photo {
+  width: 125px;
+}
+
+.td-rep_subj {
+  max-width: 30%;
+}
+
