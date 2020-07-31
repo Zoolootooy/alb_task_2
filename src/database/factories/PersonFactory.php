@@ -16,7 +16,14 @@ $factory->define(Person::class, function (Faker $faker) {
         'country_id' => \App\Models\Country::query()->inRandomOrder()->first()->id,
         'phone' => $faker->tollFreePhoneNumber,
         'email' => $faker->email,
+        'company' => $faker->company,
+        'position' => $faker->jobTitle,
+        'about' => $faker->realText($maxNbChars = 100, $indexSize = 2),
         'show' => $faker->boolean
+
+
     ];
 
 });
+
+
