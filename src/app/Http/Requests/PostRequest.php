@@ -28,14 +28,18 @@ class PostRequest extends FormRequest
     public function rules()
     {
         return [
-            'firstname' => 'required|min:5|max:255',
-            'lastname' => 'required|min:5|max:255',
+            'firstname' => 'required|min:1|max:255',
+            'lastname' => 'required|min:1|max:255',
             'birthdate' => 'required|date',
-            'rep_subject' => 'required|min:5|max:255',
+            'rep_subject' => 'required|min:3|max:255',
             'country_id' => 'required',
             'phone' => 'required|regex:/\+[0-9,\-, ,(,)]+$/',
 //            'phone' => 'required',
-            'email' => 'required',
+            'email' => 'required|email',
+            'company' => 'nullable|min:0|max:70',
+            'position' => 'nullable|min:0|max:100',
+            'about' => 'nullable|min:0|max:21844',
+            'photo' => 'nullable|mimes:jpeg,gif,png,jpg',
         ];
     }
 }

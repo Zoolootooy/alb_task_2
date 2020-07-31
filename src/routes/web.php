@@ -18,4 +18,5 @@ Route::get('/', 'MainController@index')->name('main');
 Route::get('/members_list', 'ListController@index');
 Route::post('/saveData', 'MainController@saveData');
 Route::post('/checkEmail', 'MainController@checkEmail');
+Route::post('/updateData', 'MainController@updateData');
 

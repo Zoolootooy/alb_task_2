@@ -1,6 +1,5 @@
 <div class="container">
     <form id="second" name="second" method="post" enctype="multipart/form-data">
-        @csrf
         <div class="row">
             <div class="col-12 ">
                 <h4 class="text-center mb-5">Tell us about you.</h4>
