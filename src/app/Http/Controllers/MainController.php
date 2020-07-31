@@ -6,6 +6,8 @@ use App\Models\Person;
 use App\Models\Country;
 use Illuminate\Http\Request;
 use App\Http\Requests\PostRequest;
+use App\Http\Requests\EmailRequest;
+use PharIo\Manifest\Email;
 
 class MainController extends Controller
 {
@@ -41,6 +43,14 @@ class MainController extends Controller
             echo "true";
         } else {
             echo "false";
+        }
+    }
+
+    public function checkEmail(EmailRequest $req){
+        if (Person::where('email', '=', $req->input('email'))->count() > 0) {
+            echo(json_encode(false));
+        } else {
+            echo(json_encode(true));
         }
     }
 

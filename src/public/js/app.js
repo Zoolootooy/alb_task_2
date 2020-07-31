@@ -19487,12 +19487,12 @@ $(function () {
       },
       email: {
         required: true,
-        // email: true,
-        maxlength: 70 // remote: {
-        //     url: '/checkEmail',
-        //     type: 'post',
-        // },
-
+        email: true,
+        maxlength: 70,
+        remote: {
+          url: '/checkEmail',
+          type: 'post'
+        }
       }
     },
     highlight: function highlight(element) {
@@ -19504,7 +19504,7 @@ $(function () {
     messages: {
       email: {
         email: 'Please enter a <em>valid</em> email address',
-        // remote: 'This email is already registered.',
+        remote: 'This email is already registered.',
         maxlength: 'Please enter no more than 70 characters.'
       },
       firstname: {
