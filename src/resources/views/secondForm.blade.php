@@ -1,5 +1,5 @@
 <div class="container">
-    <form id="second" name="second" method="post" enctype="multipart/form-data">
+    <form id="second" name="second" method="post" enctype="multipart/form-data" class="mb-5">
         <div class="row">
             <div class="col-12 ">
                 <h4 class="text-center mb-5">Tell us about you.</h4>

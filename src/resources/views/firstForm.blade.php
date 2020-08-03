@@ -1,5 +1,5 @@
 <div class="container">
-    <form id="first" name="first"  method="POST" enctype="multipart/form-data">
+    <form id="first" name="first" class="mb-5" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="row">
             <div class="col-8 offset-2">

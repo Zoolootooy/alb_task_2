@@ -71,4 +71,9 @@ class MainController extends Controller
             echo "false";
         }
     }
+
+    public function getMembersNumber(){
+        $count = Person::where('show', '=', 1)->count();
+        echo $count;
+    }
 }

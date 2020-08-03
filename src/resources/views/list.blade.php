@@ -28,9 +28,12 @@
                                 <div class="box">
 {{--                                    <img class="profile-img rounded-circle" src="public/images/{{$member->photo}}">--}}
                                     @if(preg_match('/^(https?)+[a-z, A-Z, 0-9, \/, \?, \:, \.]+$/', $member->photo) == 1)
-                                        <img class="profile-img rounded-circle" src="{{$member->photo}}">
+                                        <div class="img_wrapper">
+                                            <img class="profile-img rounded-circle"  src="{{$member->photo}}" alt="{{$member->photo}}">
+                                        </div>
+
                                     @else()
-                                        <img class="profile-img rounded-circle" src="storage/images/{{$member->photo}}">
+                                        <img class="profile-img rounded-circle" src="storage/images/{{$member->photo}}" alt="{{$member->photo}}">
                                     @endif
 
                                 </div>

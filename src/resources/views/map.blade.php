@@ -1,4 +1,4 @@
-<div class="map" >
+<div class="map mb-5" >
     <style>
         .map{
             /*text-align: center;*/

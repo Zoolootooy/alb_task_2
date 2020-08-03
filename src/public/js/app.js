@@ -19591,16 +19591,17 @@ $(document).ready(function () {
     headers: {
       'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
     }
-  }); // $('#btnNextSecond').bind('click', function () {
-  //     $.ajax({
-  //         url: '/getMembersNumber',
-  //         type: 'POST',
-  //         datatype: 'html',
-  //         success: function (data) {
-  //             $('#btnList').text('All members (' + data + ')')
-  //         },
-  //     })
-  // })
+  });
+  $('#btnNextSecond').bind('click', function () {
+    $.ajax({
+      url: '/getMembersNumber',
+      type: 'POST',
+      datatype: 'html',
+      success: function success(data) {
+        $('#btnList').text('All members (' + data + ')');
+      }
+    });
+  });
 
   if (getCookie('email') !== undefined && getCookie('idUser') !== undefined) {
     onSecondForm();
