@@ -10,6 +10,5 @@
 </div>
 
 <script src="{{ asset('js/map.js') }}"></script>
-
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAk10RdU1wJJ7UZnIZj8XBuVQopBvicRPE&callback=initMap"
-        async defer></script>
+<?php $map_src = "https://maps.googleapis.com/maps/api/js?key=".$map_api."&callback=initMap"?>
+<script src="{{$map_src}}" async defer></script>

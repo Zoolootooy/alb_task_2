@@ -4,11 +4,11 @@
             <div id="icons">
                 <div class="row mb-5">
                     <div class="col-12">
-                        <a href="https://www.facebook.com/sharer/sharer.php?u="
+                        <a href="https://www.facebook.com/sharer/sharer.php?u={{$share_config['link']}}"
                            onclick="window.open(this.href, '', 'menubar=no,toolbar=no,resisable=yes,' +
                                     'scrollbars=yes,height=500,width=800');return false;"
                            class="fa fa-facebook mr-3"></a>
-                        <a href="https://twitter.com/share?url=<&text="
+                        <a href="https://twitter.com/share?url={{$share_config['link']}}&text={{$share_config['text']}}"
                            onclick="window.open(this.href, '', 'menubar=no,toolbar=no,resisable=yes,' +
                                     'scrollbars=yes,height=500,width=800');return false;"
                            class="fa fa-twitter ml-3"></a>

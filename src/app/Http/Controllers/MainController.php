@@ -19,7 +19,9 @@ class MainController extends Controller
     public function index()
     {
         $countries = Country::all();
-        return response()->view('welcome', compact('countries'));
+        $map_api = config('map.map_api');
+        $share_config = config('share_socnet');
+        return response()->view('welcome', compact('countries', 'map_api', 'share_config'));
     }
 
     public function saveData(PostRequest $req){
