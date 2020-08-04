@@ -19563,7 +19563,7 @@ $(function () {
     },
     submitHandler: function submitHandler(form) {
       $.ajax({
-        url: '/updateData',
+        url: "/updateData",
         type: 'POST',
         data: new FormData(form),
         processData: false,
