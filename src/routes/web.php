@@ -15,9 +15,10 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', 'MainController@index')->name('main');
-Route::get('/members_list', 'ListController@index');
-Route::post('/saveData', 'MainController@saveData');
-Route::post('/checkEmail', 'MainController@checkEmail');
-Route::post('/updateData', 'MainController@updateData');
-Route::post('/getMembersNumber', 'MainController@getMembersNumber');
+Route::get('/members_list', 'ListController@index')->name('members_list');
+Route::get('/new_form', 'MainController@new_form')->name('new_form');
+Route::post('/saveData', 'MainController@saveData')->name('saveData');
+Route::post('/checkEmail', 'MainController@checkEmail')->name('checkEmail');
+Route::post('/updateData', 'MainController@updateData')->name('updateData');
+Route::post('/getMembersNumber', 'MainController@getMembersNumber')->name('getMembersNumber');
 

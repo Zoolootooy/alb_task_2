@@ -18,14 +18,12 @@
 
                 <div class="row">
                     <div class="col-4 offset-4">
-                        <form action="/members_list" target="_blank" method="LINK">
-                            @csrf
+                        <form action="{{route('members_list')}}" target="_blank" method="LINK">
                             <button class="btn btn-primary btn-lg btn-block shadow-sm" id="btnList">
                             </button>
                         </form>
 
-                        <form action="/newForm" method="LINK">
-                            @csrf
+                        <form action="{{route('new_form')}}" method="LINK">
                             <button class="btn btn-primary btn-lg btn-block shadow-sm mt-3">Fill form
                                 again
                             </button>

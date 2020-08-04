@@ -1,3 +1,11 @@
+{{--<style>--}}
+{{--    @media (max-width: 767px) {--}}
+{{--        .container {--}}
+{{--            width: 95%;--}}
+{{--        }--}}
+{{--    }--}}
+{{--</style>--}}
+
 <div class="container">
     <form id="second" name="second" method="post" enctype="multipart/form-data" class="mb-5">
         <div class="row">
@@ -33,18 +41,14 @@
         </div>
 
         <div class="row">
-            <div class="col-12 form-group">
-                <div class="row">
-                    <div class="col-12">
-                        <label for="exampleFormControlFile1">Photo</label>
-                    </div>
+            <div class="col-12">
+                <label for="exampleFormControlFile1">Photo</label>
+            </div>
 
-                </div>
-                <div class="row">
-                    <div class="col-12">
-                        <input id="photo" type="file" class="" name="photo"/>
-                    </div>
-                </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <input id="photo" type="file" class="" name="photo"/>
             </div>
         </div>
 
