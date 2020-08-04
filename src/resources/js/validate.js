@@ -69,6 +69,7 @@ $(function () {
             rep_subject: {
                 required: true,
                 maxlength: 255,
+                minlength: 3
             },
             country_id: {
                 required: true,

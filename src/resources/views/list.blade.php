@@ -33,7 +33,7 @@
                                         </div>
 
                                     @else()
-                                        <img class="profile-img rounded-circle" src="storage/images/{{$member->photo}}" alt="{{$member->photo}}">
+                                        <img class="profile-img rounded-circle" src="{{ asset('storage/images/'.$member->photo)}}">
                                     @endif
 
                                 </div>
@@ -41,7 +41,7 @@
                             @else
                             <td class="td-photo">
                                 <div class="box">
-                                    <img class="img rounded-circle" src="../storage/default.jpg">
+                                    <img class="img rounded-circle" src="storage/default.jpg">
                                 </div>
 
                             </td>

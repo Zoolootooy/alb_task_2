@@ -19337,13 +19337,7 @@ __webpack_require__(/*! ./datepicker */ "./resources/js/datepicker.js");
 __webpack_require__(/*! ./validate */ "./resources/js/validate.js");
 
 $(document).ready(function () {
-  $('#birthdate').datepicker();
-  $('#birthdate').datepicker({
-    minDate: 0
-  });
-  $('#birthdate').datepicker({
-    autoclose: true
-  }).change(function () {
+  $('#birthdate').datepicker({}).change(function () {
     $(this).valid(); // triggers the validation test
   });
 });
@@ -19401,7 +19395,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
     minDate: new Date(1920, 1 - 1, 1),
     changeYear: true,
     yearRange: "1920:2002",
-    changeMonth: true
+    changeMonth: true,
+    autoclose: true
   };
   $.datepicker.setDefaults($.datepicker.regional['en']);
 })();
@@ -19476,7 +19471,8 @@ $(function () {
       },
       rep_subject: {
         required: true,
-        maxlength: 255
+        maxlength: 255,
+        minlength: 3
       },
       country_id: {
         required: true

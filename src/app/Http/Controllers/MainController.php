@@ -23,19 +23,9 @@ class MainController extends Controller
     }
 
     public function saveData(PostRequest $req){
-        $person = new Person();
-        $person->firstname = $req->input('firstname');
-        $person->lastname = $req->input('firstname');
-        $person->birthdate = $req->input('birthdate');
-        $person->rep_subject = $req->input('rep_subject');
-        $person->country_id = $req->input('country_id');
-        $person->phone = $req->input('phone');
-        $email = $req->input('email');
-        $person->email = $email;
-        $person->show = 1;
-
-        $person->save();
+        $person = Person::create($req->all());
         $id = $person->id;
+        $email = $person->email;
 
         if ($id != false) {
             setcookie("email", $email);
@@ -57,10 +47,14 @@ class MainController extends Controller
     public function updateData(Request $request){
         $id = $_COOKIE['idUser'];
         $email = $_COOKIE['email'];
-        $person = Person::where('id', '=', $id)->first();
+        $person = Person::where('id', $id)->where('email', $email)->first();
         $person->company = $request->input('company');
         $person->position = $request->input('position');
         $person->about = $request->input('about');
+
+        $filename = $this->uploadImage($request->file('photo'));
+
+        $person->photo = $filename;
 
         $person->save();
         $id = $person->id;
@@ -75,5 +69,16 @@ class MainController extends Controller
     public function getMembersNumber(){
         $count = Person::where('show', '=', 1)->count();
         echo $count;
+    }
+
+    public function uploadImage($photo){
+        if (isset($photo) && !empty($photo)) {
+            $filename = $photo->store('images', 'public');
+            $filename = explode('/', $filename)[1];
+        } else {
+        $filename = null;
+        }
+        return $filename;
+
     }
 }

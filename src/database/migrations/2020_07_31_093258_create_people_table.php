@@ -29,7 +29,7 @@ class CreatePeopleTable extends Migration
             $table->text('about')->nullable();
             $table->string('photo', 255)->nullable();
 
-            $table->boolean('show');
+            $table->boolean('show')->default(true);
 
             $table->timestamps();
         });
