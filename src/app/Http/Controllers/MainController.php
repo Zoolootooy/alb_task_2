@@ -24,8 +24,8 @@ class MainController extends Controller
         return response()->view('welcome', compact('countries', 'map_api', 'share_config'));
     }
 
-    public function saveData(PostRequest $req){
-        $person = Person::create($req->all());
+    public function saveData(PostRequest $request){
+        $person = Person::create($request->all());
         $id = $person->id;
         $email = $person->email;
 
@@ -50,15 +50,11 @@ class MainController extends Controller
         $id = $_COOKIE['idUser'];
         $email = $_COOKIE['email'];
         $person = Person::where('id', $id)->where('email', $email)->first();
-        $person->company = $request->input('company');
-        $person->position = $request->input('position');
-        $person->about = $request->input('about');
 
         $filename = $this->uploadImage($request->file('photo'));
-
         $person->photo = $filename;
 
-        $person->save();
+        $person->update($request->all());
         $id = $person->id;
 
         if ($id != false) {
@@ -82,5 +78,11 @@ class MainController extends Controller
         }
         return $filename;
 
+    }
+
+    public function new_form(){
+        setcookie("email", "", time() - 3600);
+        setcookie("idUser", "", time() - 3600);
+        return redirect()->route('main');
     }
 }
