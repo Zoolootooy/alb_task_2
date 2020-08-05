@@ -44,7 +44,7 @@
             <div class="col-12 form-group">
                 <label for="country_id">Choose county</label>
                 <select class="form-control shadow-sm" id="country_id" name="country_id" required>
-                    <option ></option>
+                    <option></option>
                     @foreach($countries as $country)
                         <option value="{{$country->id}}">{{$country->name}}</option>
                     @endforeach

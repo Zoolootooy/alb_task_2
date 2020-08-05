@@ -24,7 +24,8 @@ class MainController extends Controller
         return response()->view('welcome', compact('countries', 'map_api', 'share_config'));
     }
 
-    public function saveData(PostRequest $request){
+    public function saveData(PostRequest $request)
+    {
         $person = Person::create($request->all());
         $id = $person->id;
         $email = $person->email;
@@ -38,7 +39,8 @@ class MainController extends Controller
         }
     }
 
-    public function checkEmail(EmailRequest $req){
+    public function checkEmail(EmailRequest $req)
+    {
         if (Person::where('email', '=', $req->input('email'))->count() > 0) {
             echo(json_encode(false));
         } else {
@@ -46,7 +48,8 @@ class MainController extends Controller
         }
     }
 
-    public function updateData(Request $request){
+    public function updateData(Request $request)
+    {
         $id = $_COOKIE['idUser'];
         $email = $_COOKIE['email'];
         $person = Person::where('id', $id)->where('email', $email)->first();
@@ -64,23 +67,26 @@ class MainController extends Controller
         }
     }
 
-    public function getMembersNumber(){
+    public function getMembersNumber()
+    {
         $count = Person::where('show', '=', 1)->count();
         echo $count;
     }
 
-    public function uploadImage($photo){
+    public function uploadImage($photo)
+    {
         if (isset($photo) && !empty($photo)) {
             $filename = $photo->store('images', 'public');
             $filename = explode('/', $filename)[1];
         } else {
-        $filename = null;
+            $filename = null;
         }
         return $filename;
 
     }
 
-    public function new_form(){
+    public function new_form()
+    {
         setcookie("email", "", time() - 3600);
         setcookie("idUser", "", time() - 3600);
         return redirect()->route('main');
