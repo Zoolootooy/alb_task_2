@@ -15,6 +15,12 @@ class Admin
      */
     public function handle($request, Closure $next)
     {
+        "http://albtask2.local/changeShow";
+
+        if (!\Auth::check()){
+            return redirect('/404');
+        }
+
         if (\Auth::user()->isAdmin == false){
             return redirect('/404');
         }

@@ -11,12 +11,12 @@
                     <table class="table table-striped table-bordered shadow-sm">
                         <thead>
                         <tr class="thead-dark text-center">
-                            <th>ID</th>
-                            <th>Photo</th>
-                            <th>Name</th>
-                            <th>Report subject</th>
-                            <th>Email</th>
-                            <th>Show</th>
+                            <th class="align-middle">ID</th>
+                            <th class="align-middle">Photo</th>
+                            <th class="align-middle">Name</th>
+                            <th class="align-middle">Report subject</th>
+                            <th class="align-middle">Email</th>
+                            <th class="align-middle">Show <input type="checkbox" id="selectAll"></th>
                         </tr>
                         </thead>
                         <tbody>
@@ -50,9 +50,15 @@
 
 
                                 <td class="align-middle mw-30">{{ $member->firstname . " " . $member->lastname }}</td>
-                                <td class="align-middle mw-30">{{ $member->rep_subject }}</td>
+                                <td class="align-middle mw-25">{{ $member->rep_subject }}</td>
                                 <td class="align-middle mw-20"><a href="{{ 'mailto:' . $member->email}}"> {{$member->email}}</a></td>
-                                <td class="align-middle"></td>
+
+                                @if ($member->show)
+                                    <td class="align-middle" ><input type="checkbox" class="show" id="{{$member->id}}" checked></td>
+                                @else
+                                    <td class="align-middle" ><input type="checkbox" class="show" id="{{$member->id}}"></td>
+                                @endif
+
                             </tr>
 
                         @endforeach

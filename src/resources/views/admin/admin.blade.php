@@ -10,17 +10,18 @@
             </div>
         @endif
 
-        <ul class="list-group list-group-horizontal">
-            <li class="list-group-item">
-                <a href="/">Register form</a>
-            </li>
-            <li class="list-group-item">
-                <a href="/members_list">Members list</a>
-            </li>
-            <li class="list-group-item">
-                <a href="{{ route('members_list_admin') }}">Admin members list</a>
-            </li>
-        </ul>
+        <div class="row">
+            <div class="col-12 col-lg mb-2">
+                <a class="btn btn-primary btn-lg btn-block" href="/">Register form</a>
+            </div>
+
+            <div class="col-12 col-lg mb-2">
+                <a class="btn btn-primary btn-lg btn-block" href="/members_list">Members list</a>
+            </div>
+
+            <div class="col-12 col-lg mb-2">
+                <a class="btn btn-primary btn-lg btn-block" href="{{ route('members_list_admin') }}">Admin members list</a>
+            </div>
     </div>
 
 

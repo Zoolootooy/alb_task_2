@@ -26,5 +26,6 @@
 <script src="https://cdn.rawgit.com/andr-04/inputmask-multi/1.2.0/js/jquery.inputmask-multi.min.js"
         type="text/javascript"></script>
 <script src="{{ asset('js/phoneMask.js') }}"></script>
+@include('partials.footer')
 </body>
 </html>

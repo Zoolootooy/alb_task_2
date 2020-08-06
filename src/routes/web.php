@@ -28,18 +28,34 @@ Route::post('/getMembersNumber', 'MainController@getMembersNumber')->name('getMe
 
 
 
+////admin
+Route::group(['middleware' => 'admin'], function() {
+    Route::get('/admin', 'Admin\AdminController@index')->name('admin');
+    Route::get('/members_list_admin', 'Admin\AdminController@members_list_admin')->name('members_list_admin');
+    Route::post('/changeShow', 'Admin\AdminController@changeShow');
 
-
-
-Route::group(['middleware' => 'auth'], function(){
-//    Auth::routes();
-
-    //admin
-    Route::group(['middleware' => 'admin'], function() {
-        Route::get('/admin', 'Admin\AccountController@index')->name('admin');
-        Route::get('/members_list_admin', 'Admin\AccountController@members_list_admin')->name('members_list_admin');
-    });
-
+    Route::post('/changeAllShow', 'Admin\AdminController@changeAllShow');
 });
+
+//redirect
+Route::get('/changeShow', function (){
+    return redirect('/404');
+});
+Route::get('/changeAllShow', function (){
+    return redirect('/404');
+});
+Route::get('/saveData', function (){
+    return redirect('/404');
+});
+Route::get('/checkEmail', function (){
+    return redirect('/404');
+});
+Route::get('/updateData', function (){
+    return redirect('/404');
+});
+Route::get('/getMembersNumber', function (){
+    return redirect('/404');
+});
+
 
 
