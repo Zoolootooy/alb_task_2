@@ -19,10 +19,10 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <?php $i=0?>
+                        <?php $i=($members->currentPage()-1)*10?>
                         @foreach($members as $member)
                         <tr class="text-center">
-                            <td class="align-middle">{{ ++$i }}</td>
+                            <td class="align-middle">{{ ++$i  }}</td>
                             @if ($member['photo'] != null)
                             <td class="td-photo">
                                 <div class="box">

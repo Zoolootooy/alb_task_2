@@ -1,12 +1,11 @@
 @extends('partials/header')
 
 @section('content')
+
     @include('map')
-
-
-        @include('firstForm')
-        @include('secondForm')
-        @include('socialNetworks')
+    @include('firstForm')
+    @include('secondForm')
+    @include('socialNetworks')
 
 
 
