@@ -26,7 +26,7 @@ class MainController extends Controller
 
     public function saveData(PostRequest $request)
     {
-        $person = Person::create($request->all());
+        $person = Person::create($request->validated());
         $id = $person->id;
         $email = $person->email;
 
@@ -41,7 +41,7 @@ class MainController extends Controller
 
     public function checkEmail(EmailRequest $req)
     {
-        if (Person::where('email', '=', $req->input('email'))->count() > 0) {
+        if (Person::where('email', '=', $req->email)->count() > 0) {
             echo(json_encode(false));
         } else {
             echo(json_encode(true));
@@ -55,9 +55,11 @@ class MainController extends Controller
         $person = Person::where('id', $id)->where('email', $email)->first();
 
         $filename = $this->uploadImage($request->file('photo'));
-        $person->photo = $filename;
 
         $person->update($request->all());
+        if ($filename != null) {
+            $person->update(['photo' => $filename]);
+        }
         $id = $person->id;
 
         if ($id != false) {
@@ -69,7 +71,7 @@ class MainController extends Controller
 
     public function getMembersNumber()
     {
-        $count = Person::where('show', '=', 1)->count();
+        $count = Person::where('show', 1)->count();
         echo $count;
     }
 
@@ -85,7 +87,7 @@ class MainController extends Controller
 
     }
 
-    public function new_form()
+    public function newForm()
     {
         setcookie("email", "", time() - 3600);
         setcookie("idUser", "", time() - 3600);

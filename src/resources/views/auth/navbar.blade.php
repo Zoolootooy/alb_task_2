@@ -2,7 +2,8 @@
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="/">Conferencing</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -19,11 +20,11 @@
                             </li>
                         @endif
                     @else
-{{--                        <li class="text-center">--}}
-{{--                            <a class="nav-link" href="{{ route('members_list_admin') }}">--}}
-{{--                                {{ __('Home') }}--}}
-{{--                            </a>--}}
-{{--                        </li>--}}
+                        {{--                        <li class="text-center">--}}
+                        {{--                            <a class="nav-link" href="{{ route('members_list_admin') }}">--}}
+                        {{--                                {{ __('Home') }}--}}
+                        {{--                            </a>--}}
+                        {{--                        </li>--}}
                         @if (Auth::user()->isAdmin == 1)
                             <li class="text-center">
                                 <a class="nav-link" href="{{ route('admin') }}">

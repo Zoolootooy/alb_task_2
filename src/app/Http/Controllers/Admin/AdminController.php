@@ -13,21 +13,28 @@ class AdminController extends Controller
         return view('admin.admin');
     }
 
-    public function members_list_admin()
+    public function membersListAdmin()
     {
-        $members = Person::paginate(10);
+        $members = Person::paginate(20);
         return response()->view('admin.list', compact('members'));
     }
 
-    public function changeShow(Request $request){
-        $id = $request->input('idMember');
-        $show = $request->input('show');
-        if ($show == "true"){
-            $show = 1;
+    public function showToTinyInt($show)
+    {
+        if ($show == "true") {
+            $res = 1;
         }
-        if ($show == "false"){
-            $show = 0;
+        if ($show == "false") {
+            $res = 0;
         }
+        return $res;
+    }
+
+    public function changeShow(Request $request)
+    {
+        $id = $request->idMember;
+        $show = $request->show;
+        $show = self::showToTinyInt($show);
         $person = Person::where('id', $id)->first();
 
         $person->update(compact('id', 'show'));
@@ -40,21 +47,19 @@ class AdminController extends Controller
         }
     }
 
-    public function changeAllShow(Request $request){
-        $show = $request->input('show');
-        if ($show == "true"){
-            $show = 1;
-        }
-        if ($show == "false"){
-            $show = 0;
-        }
+    public function changeAllShow(Request $request)
+    {
+        $show = $request->show;
+        $show = self::showToTinyInt($show);
 
-      \DB::table('people')->update(compact('show'));
+        $id = Person::query()->update(compact('show'));
 
-//        if ($id != false) {
+        if ($id != false) {
             echo "true";
-//        } else {
-//            echo "false";
-//        }
+        } else {
+            echo "false";
+        }
     }
+
+
 }

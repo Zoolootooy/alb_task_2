@@ -11,7 +11,6 @@ $(document).ready(function () {
         datatype: 'html',
         success: function (data) {
             if (data > 0){
-                console.log("+")
                 $('#selectAll').prop('checked', true)
             }
         },

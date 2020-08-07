@@ -19,43 +19,25 @@ Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
 
 Route::get('/', 'MainController@index')->name('main');
-Route::get('/members_list', 'ListController@index')->name('members_list');
-Route::get('/new_form', 'MainController@new_form')->name('new_form');
+Route::get('/members-list', 'ListController@index')->name('members-list');
+Route::get('/new-form', 'MainController@newForm')->name('new-form');
 Route::post('/saveData', 'MainController@saveData')->name('saveData');
 Route::post('/checkEmail', 'MainController@checkEmail')->name('checkEmail');
 Route::post('/updateData', 'MainController@updateData')->name('updateData');
 Route::post('/getMembersNumber', 'MainController@getMembersNumber')->name('getMembersNumber');
 
 
+//Auth::routes();
 
 ////admin
-Route::group(['middleware' => 'admin'], function() {
+Route::group(['middleware' => 'admin'], function () {
     Route::get('/admin', 'Admin\AdminController@index')->name('admin');
-    Route::get('/members_list_admin', 'Admin\AdminController@members_list_admin')->name('members_list_admin');
+    Route::get('/members-list-admin', 'Admin\AdminController@membersListAdmin')->name('members-list-admin');
     Route::post('/changeShow', 'Admin\AdminController@changeShow');
 
     Route::post('/changeAllShow', 'Admin\AdminController@changeAllShow');
 });
 
-//redirect
-Route::get('/changeShow', function (){
-    return redirect('/404');
-});
-Route::get('/changeAllShow', function (){
-    return redirect('/404');
-});
-Route::get('/saveData', function (){
-    return redirect('/404');
-});
-Route::get('/checkEmail', function (){
-    return redirect('/404');
-});
-Route::get('/updateData', function (){
-    return redirect('/404');
-});
-Route::get('/getMembersNumber', function (){
-    return redirect('/404');
-});
 
 
 

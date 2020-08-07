@@ -7,8 +7,5 @@
     @include('secondForm')
     @include('socialNetworks')
 
-
-
 @endsection
 
-@extends('partials/footer')

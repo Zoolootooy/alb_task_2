@@ -19,7 +19,7 @@ var maskOpts = {
     replace: '#',
     list: maskList,
     listKey: "mask",
-    onMaskChange: function(maskObj, determined) {
+    onMaskChange: function (maskObj, determined) {
         if (determined) {
             var hint = maskObj.name_en;
             if (maskObj.desc_en && maskObj.desc_en != "") {
@@ -32,7 +32,7 @@ var maskOpts = {
     }
 };
 
-$('#phone_mask').change(function() {
+$('#phone_mask').change(function () {
     $('#phone').inputmask("remove");
     $('#phone').inputmasks(maskOpts);
 });

@@ -1,11 +1,3 @@
-{{--<style>--}}
-{{--    @media (max-width: 767px) {--}}
-{{--        .container {--}}
-{{--            width: 95%;--}}
-{{--        }--}}
-{{--    }--}}
-{{--</style>--}}
-
 <div class="container">
     <form id="second" name="second" method="post" enctype="multipart/form-data" class="mb-5">
         <div class="row">

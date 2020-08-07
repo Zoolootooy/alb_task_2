@@ -1,7 +1,7 @@
 require('./bootstrap');
 require('./validate');
 require('./datepicker');
-require('./memberShowHide');
+// require('./memberShowHide');
 
 $(document).ready(function () {
     $('#birthdate').datepicker({}).change(function () {

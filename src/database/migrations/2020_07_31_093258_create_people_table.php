@@ -15,10 +15,10 @@ class CreatePeopleTable extends Migration
     {
         Schema::create('people', function (Blueprint $table) {
             $table->id();
-            $table->string('firstname',255);
-            $table->string('lastname',255);
+            $table->string('firstname', 255);
+            $table->string('lastname', 255);
             $table->date('birthdate');
-            $table->string('rep_subject',255);
+            $table->string('rep_subject', 255);
 
             $table->foreignId('country_id');
             $table->foreign('country_id')->references('id')->on('countries');

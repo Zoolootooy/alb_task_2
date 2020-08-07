@@ -18,12 +18,12 @@
 
                 <div class="row">
                     <div class="col-4 offset-4">
-                        <form action="{{route('members_list')}}" target="_blank" method="LINK">
+                        <form action="{{route('members-list')}}" target="_blank" method="LINK">
                             <button class="btn btn-primary btn-lg btn-block shadow-sm" id="btnList">
                             </button>
                         </form>
 
-                        <form action="{{route('new_form')}}" method="LINK">
+                        <form action="{{route('new-form')}}" method="LINK">
                             <button class="btn btn-primary btn-lg btn-block shadow-sm mt-3">Fill form
                                 again
                             </button>

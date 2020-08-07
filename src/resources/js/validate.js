@@ -1,34 +1,32 @@
-function onFirstForm () {
+function onFirstForm() {
     $('#second').hide()
 }
 
-function onSecondForm () {
+function onSecondForm() {
     $('#first').hide()
 }
 
-function funcBeforeFirst () {
+function funcBeforeFirst() {
 }
 
-function funcSuccessFirst (data) {
+function funcSuccessFirst(data) {
     if (data == 'true') {
         $('#first').hide(500)
         $('#second').show(500)
-    }
-    else {
+    } else {
         alert(
             'Some error with saving your data. Please check the entering data and try again.')
     }
 }
 
-function funcBeforeSecond () {
+function funcBeforeSecond() {
 }
 
-function funcSuccessSecond (data) {
+function funcSuccessSecond(data) {
     if (data == 'true') {
         $('#second').hide(500)
         $('#icons').show(500)
-    }
-    else {
+    } else {
         alert(
             'Some error with updating your data. Please check the entering data and try again.')
     }
@@ -57,11 +55,11 @@ $(function () {
         rules: {
             firstname: {
                 required: true,
-                maxlength: 100,
+                maxlength: 50,
             },
             lastname: {
                 required: true,
-                maxlength: 255,
+                maxlength: 50,
             },
             birthdate: {
                 required: true,
@@ -89,10 +87,10 @@ $(function () {
             },
         },
         highlight: function (element) {
-          $(element).closest('.form-control').addClass('is-invalid')
+            $(element).closest('.form-control').addClass('is-invalid')
         },
         unhighlight: function (element) {
-          $(element).closest('.form-control').removeClass('is-invalid')
+            $(element).closest('.form-control').removeClass('is-invalid')
         },
         messages: {
             email: {
@@ -101,10 +99,10 @@ $(function () {
                 maxlength: 'Please enter no more than 70 characters.',
             },
             firstname: {
-                maxlength: 'Please enter no more than 100 characters.',
+                maxlength: 'Please enter no more than 50 characters.',
             },
             lastname: {
-                maxlength: 'Please enter no more than 255 characters.',
+                maxlength: 'Please enter no more than 50 characters.',
             },
         },
         submitHandler: function () {
@@ -142,7 +140,7 @@ $(function () {
                 maxlength: 100,
             },
             about: {
-                maxlength: 21844,
+                maxlength: 1000,
             },
         },
         messages: {
@@ -157,7 +155,7 @@ $(function () {
                 maxlength: 'Please enter no more than 100 characters.',
             },
             about: {
-                maxlength: 'Please enter no more than 21844 characters.',
+                maxlength: 'Please enter no more than 1000 characters.',
             },
         },
         submitHandler: function (form) {
@@ -177,7 +175,7 @@ $(function () {
     })
 })
 
-function getCookie (name) {
+function getCookie(name) {
     let matches = document.cookie.match(new RegExp(
         '(?:^|; )' + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') +
         '=([^;]*)',
@@ -206,8 +204,7 @@ $(document).ready(function () {
     if ((getCookie('email') !== undefined) &&
         (getCookie('idUser') !== undefined)) {
         onSecondForm()
-    }
-    else {
+    } else {
         onFirstForm()
     }
 

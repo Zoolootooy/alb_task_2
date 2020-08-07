@@ -2105,9 +2105,8 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! ./validate */ "./resources/js/validate.js");
 
-__webpack_require__(/*! ./datepicker */ "./resources/js/datepicker.js");
+__webpack_require__(/*! ./datepicker */ "./resources/js/datepicker.js"); // require('./memberShowHide');
 
-__webpack_require__(/*! ./memberShowHide */ "./resources/js/memberShowHide.js");
 
 $(document).ready(function () {
   $('#birthdate').datepicker({}).change(function () {
@@ -2174,66 +2173,6 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
-/***/ "./resources/js/memberShowHide.js":
-/*!****************************************!*\
-  !*** ./resources/js/memberShowHide.js ***!
-  \****************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-$(document).ready(function () {
-  $.ajaxSetup({
-    headers: {
-      'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
-    }
-  });
-  $.ajax({
-    url: '/getMembersNumber',
-    type: 'POST',
-    datatype: 'html',
-    success: function success(data) {
-      if (data > 0) {
-        console.log("+");
-        $('#selectAll').prop('checked', true);
-      }
-    }
-  });
-  $('#selectAll').on('change', function (e) {
-    // Находим все checkbox и ставим им состояние главного переключателя
-    $('input[type="checkbox"]').not(this).prop('checked', this.checked);
-    $.ajax({
-      url: '/changeAllShow',
-      type: 'POST',
-      data: {
-        show: this.checked
-      },
-      datatype: 'html',
-      success: function success(data) {
-        // $('#btnList').text('All members (' + data + ')')
-        console.log(data);
-      }
-    });
-  });
-  $('.show').bind('click', function () {
-    // console.log($(this).attr('id')+" "+$(this).prop('checked'))
-    $.ajax({
-      url: '/changeShow',
-      type: 'POST',
-      data: {
-        idMember: $(this).attr('id'),
-        show: $(this).prop('checked')
-      },
-      datatype: 'html',
-      success: function success(data) {
-        // $('#btnList').text('All members (' + data + ')')
-        console.log(data);
-      }
-    });
-  });
-});
-
-/***/ }),
-
 /***/ "./resources/js/validate.js":
 /*!**********************************!*\
   !*** ./resources/js/validate.js ***!
@@ -2291,11 +2230,11 @@ $(function () {
     rules: {
       firstname: {
         required: true,
-        maxlength: 100
+        maxlength: 50
       },
       lastname: {
         required: true,
-        maxlength: 255
+        maxlength: 50
       },
       birthdate: {
         required: true
@@ -2335,10 +2274,10 @@ $(function () {
         maxlength: 'Please enter no more than 70 characters.'
       },
       firstname: {
-        maxlength: 'Please enter no more than 100 characters.'
+        maxlength: 'Please enter no more than 50 characters.'
       },
       lastname: {
-        maxlength: 'Please enter no more than 255 characters.'
+        maxlength: 'Please enter no more than 50 characters.'
       }
     },
     submitHandler: function submitHandler() {
@@ -2374,7 +2313,7 @@ $(function () {
         maxlength: 100
       },
       about: {
-        maxlength: 21844
+        maxlength: 1000
       }
     },
     messages: {
@@ -2389,7 +2328,7 @@ $(function () {
         maxlength: 'Please enter no more than 100 characters.'
       },
       about: {
-        maxlength: 'Please enter no more than 21844 characters.'
+        maxlength: 'Please enter no more than 1000 characters.'
       }
     },
     submitHandler: function submitHandler(form) {

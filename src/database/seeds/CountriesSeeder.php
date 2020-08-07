@@ -16,7 +16,7 @@ class CountriesSeeder extends Seeder
         $json = File::get("database/data/countries.json");
         $data = json_decode($json);
 
-        foreach ($data as $obj){
+        foreach ($data as $obj) {
             Country::create(array(
                 'id' => $obj->id,
                 'name' => $obj->name
