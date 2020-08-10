@@ -5,6 +5,7 @@ npm install
 php artisan storage:link
 ```
 Also in .env file should change GOOGLE_MAPS_API_KEY (I've put my api_key for testing)
+In src/config/share_socnet.php you can change Link and text on the site
 
 ### How to get to Admin panel
 1. Go to /login
