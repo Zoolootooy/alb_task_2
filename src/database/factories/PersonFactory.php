@@ -19,7 +19,7 @@ $factory->define(Person::class, function (Faker $faker) {
         'position' => $faker->jobTitle,
         'about' => $faker->realText($maxNbChars = 100, $indexSize = 2),
         'show' => $faker->boolean,
-//        'photo' => $faker->imageUrl(100,100)
+        'photo' => $faker->imageUrl(100,100)
     ];
 
 });

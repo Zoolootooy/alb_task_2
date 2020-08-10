@@ -1,10 +1,4 @@
 <div class="map mb-5" >
-    <style>
-        .map{
-            /*text-align: center;*/
-            height: 450px;
-        }
-    </style>
 
     <div id="map" class="map"></div>
 </div>

@@ -1,4 +1,9 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);.fa {
+@import url(https://fonts.googleapis.com/css?family=Nunito);.map {
+  /*text-align: center;*/
+  height: 450px;
+}
+
+.fa {
   padding: 20px;
   font-size: 60px;
   width: 100px;

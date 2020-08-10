@@ -1,4 +1,0 @@
-<?php
-return [
-    'map_api' => 'enter_here_api'
-];

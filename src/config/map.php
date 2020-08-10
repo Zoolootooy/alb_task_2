@@ -1,4 +1,4 @@
 <?php
 return [
-    'map_api' => 'AIzaSyAk10RdU1wJJ7UZnIZj8XBuVQopBvicRPE'
+    'map_api' => env(GOOGLE_MAPS_API_KEY)
 ];

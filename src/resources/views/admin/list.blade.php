@@ -11,7 +11,7 @@
                     <table class="table table-striped table-bordered shadow-sm">
                         <thead>
                         <tr class="thead-dark text-center">
-                            <th class="align-middle">ID</th>
+                            <th class="align-middle">№</th>
                             <th class="align-middle">Photo</th>
                             <th class="align-middle">Name</th>
                             <th class="align-middle">Report subject</th>
@@ -20,10 +20,10 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <?php $i = ($members->currentPage() - 1) * 10?>
+                        <?php $i = ($members->currentPage() - 1) * 20?>
                         @foreach($members as $member)
                             <tr class="text-center">
-                                <td class="align-middle">{{ $member->id }}</td>
+                                <td class="align-middle">{{ ++$i  }}</td>
                                 @if ($member['photo'] != null)
                                     <td class="td-photo">
                                         <div class="box">
@@ -80,7 +80,7 @@
         </div>
     </div>
 
-    <script src="{{ asset('js/memberShowHide.js') }}"></script>
+{{--    <script src="{{ asset('js/memberShowHide.js') }}"></script>--}}
 @endsection
 
 

@@ -2105,14 +2105,11 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! ./validate */ "./resources/js/validate.js");
 
-__webpack_require__(/*! ./datepicker */ "./resources/js/datepicker.js"); // require('./memberShowHide');
+__webpack_require__(/*! ./datepicker */ "./resources/js/datepicker.js");
 
+__webpack_require__(/*! ./memberShowHide */ "./resources/js/memberShowHide.js");
 
-$(document).ready(function () {
-  $('#birthdate').datepicker({}).change(function () {
-    $(this).valid(); // triggers the validation test
-  });
-});
+__webpack_require__(/*! ./phoneMask */ "./resources/js/phoneMask.js");
 
 /***/ }),
 
@@ -2170,6 +2167,122 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
   };
   $.datepicker.setDefaults($.datepicker.regional['en']);
 })();
+
+$(document).ready(function () {
+  $('#birthdate').datepicker({}).change(function () {
+    $(this).valid(); // triggers the validation test
+  });
+});
+
+/***/ }),
+
+/***/ "./resources/js/memberShowHide.js":
+/*!****************************************!*\
+  !*** ./resources/js/memberShowHide.js ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  $.ajaxSetup({
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+    }
+  });
+  $.ajax({
+    url: '/getMembersNumber',
+    type: 'POST',
+    datatype: 'html',
+    success: function success(data) {
+      if (data > 0) {
+        $('#selectAll').prop('checked', true);
+      }
+    }
+  });
+  $('#selectAll').on('change', function (e) {
+    // Находим все checkbox и ставим им состояние главного переключателя
+    $('input[type="checkbox"]').not(this).prop('checked', this.checked);
+    $.ajax({
+      url: '/changeAllShow',
+      type: 'POST',
+      data: {
+        show: this.checked
+      },
+      datatype: 'html',
+      success: function success(data) {
+        // $('#btnList').text('All members (' + data + ')')
+        console.log(data);
+      }
+    });
+  });
+  $('.show').bind('click', function () {
+    // console.log($(this).attr('id')+" "+$(this).prop('checked'))
+    $.ajax({
+      url: '/changeShow',
+      type: 'POST',
+      data: {
+        idMember: $(this).attr('id'),
+        show: $(this).prop('checked')
+      },
+      datatype: 'html',
+      success: function success(data) {
+        // $('#btnList').text('All members (' + data + ')')
+        console.log(data);
+      }
+    });
+  });
+});
+
+/***/ }),
+
+/***/ "./resources/js/phoneMask.js":
+/*!***********************************!*\
+  !*** ./resources/js/phoneMask.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  var maskList = $.masksSort($.masksLoad("json/phone-codes.json"), ['#'], /[0-9]|#/, "mask");
+  var maskOpts = {
+    inputmask: {
+      definitions: {
+        '#': {
+          validator: "[0-9]",
+          cardinality: 1
+        }
+      },
+      showMaskOnHover: false,
+      //autoUnmask
+      //true: value will be without mask;
+      //false: value will be with mask;
+      autoUnmask: false,
+      clearMaskOnLostFocus: false
+    },
+    match: /[0-9]/,
+    replace: '#',
+    list: maskList,
+    listKey: "mask",
+    onMaskChange: function onMaskChange(maskObj, determined) {
+      if (determined) {
+        var hint = maskObj.name_en;
+
+        if (maskObj.desc_en && maskObj.desc_en != "") {
+          hint += " (" + maskObj.desc_en + ")";
+        }
+
+        $("#descr").html(hint);
+      } else {
+        $("#descr").html("Mask of input");
+      }
+    }
+  };
+  $('#phone_mask').change(function () {
+    $('#phone').inputmask("remove");
+    $('#phone').inputmasks(maskOpts);
+  });
+  $('#phone_mask').change();
+});
 
 /***/ }),
 
