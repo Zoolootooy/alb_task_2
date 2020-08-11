@@ -30,7 +30,7 @@
                                             @if(preg_match('/^(https?)+[a-z, A-Z, 0-9, \/, \?, \:, \.]+$/', $member->photo) == 1)
                                                 <div class="img_wrapper">
                                                     <img class="profile-img rounded-circle" src="{{$member->photo}}"
-                                                         alt="{{$member->photo}}">
+                                                         alt="avatar">
                                                 </div>
 
                                             @else()

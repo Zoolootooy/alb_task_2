@@ -28,7 +28,7 @@
                                             <?php if(preg_match('/^(https?)+[a-z, A-Z, 0-9, \/, \?, \:, \.]+$/', $member->photo) == 1): ?>
                                                 <div class="img_wrapper">
                                                     <img class="profile-img rounded-circle" src="<?php echo e($member->photo); ?>"
-                                                         alt="<?php echo e($member->photo); ?>">
+                                                         alt="avatar">
                                                 </div>
 
                                             <?php else: ?>
