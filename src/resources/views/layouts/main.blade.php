@@ -6,7 +6,7 @@
     <meta name="_token" content="{!! csrf_token() !!}"/>
     @include('partials.styles')
     <title>Conference</title>
-
+{{--    <script src="{{ asset('js/phoneMask.js') }}"></script>--}}
 </head>
 <body>
 
@@ -28,6 +28,5 @@
             type="text/javascript"></script>
     <script src="https://cdn.rawgit.com/andr-04/inputmask-multi/1.2.0/js/jquery.inputmask-multi.min.js"
             type="text/javascript"></script>
-    {{--<script src="{{ asset('js/phoneMask.js') }}"></script>--}}
 </footer>
 </html>
