@@ -26,26 +26,43 @@ class MainController extends Controller
 
     public function saveData(PostRequest $request)
     {
-        $person = Person::create($request->validated());
-        $id = $person->id;
-        $email = $person->email;
+//        $person = Person::create($request->validated());
+//        $id = $person->id;
+//        $email = $person->email;
+//
+//        if ($id != false) {
+//            setcookie("email", $email);
+//            setcookie("idUser", $id);
+//            echo "true";
+//        } else {
+//            echo "false";
+//        }
 
-        if ($id != false) {
-            setcookie("email", $email);
-            setcookie("idUser", $id);
-            echo "true";
-        } else {
-            echo "false";
+
+        $ok = false;
+        $person = Person::create($request->validated());
+
+        if ($person !== null){
+            setcookie("email", $person->email);
+            setcookie("idUser", $person->id);
+            $ok = true;
         }
+
+        return response()->json($ok);
     }
 
     public function checkEmail(EmailRequest $req)
     {
-        if (Person::where('email', '=', $req->email)->count() > 0) {
-            echo(json_encode(false));
-        } else {
-            echo(json_encode(true));
-        }
+//        if (Person::where('email', '=', $req->email)->count() > 0) {
+//            echo(json_encode(false));
+//        } else {
+//            echo(json_encode(true));
+//        }
+
+        $exists = Person::where('email', '=', $req->email)->exists();
+
+        return response()->json(!$exists);
+//        return response()->json(['ok' => !$exists]);
     }
 
     public function updateData(Request $request)
@@ -63,9 +80,9 @@ class MainController extends Controller
         $id = $person->id;
 
         if ($id != false) {
-            echo "true";
+            return response()->json(true);
         } else {
-            echo "false";
+            return response()->json(false);
         }
     }
 

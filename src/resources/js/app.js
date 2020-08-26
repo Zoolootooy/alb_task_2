@@ -1,7 +1,7 @@
-require('./bootstrap');
+require('./bootstrap')
 
-require('./validate');
-require('./datepicker');
-require('./memberShowHide');
-require('./phoneMask');
+require('./validate')
+require('./datepicker')
+require('./memberShowHide')
+require('./phoneMask')
 

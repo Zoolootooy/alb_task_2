@@ -1,9 +1,9 @@
-$(document).ready(function () {
+(function () {
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
         }
-    });
+    })
 
     $.ajax({
         url: '/getMembersNumber',
@@ -18,7 +18,7 @@ $(document).ready(function () {
 
     $('#selectAll').on('change', function(e){
         // Находим все checkbox и ставим им состояние главного переключателя
-        $('input[type="checkbox"]').not(this).prop('checked', this.checked);
+        $('input[type="checkbox"]').not(this).prop('checked', this.checked)
         $.ajax({
             url: '/changeAllShow',
             type: 'POST',
@@ -31,7 +31,7 @@ $(document).ready(function () {
                 console.log(data)
             },
         })
-    });
+    })
 
     $('.show').bind('click', function () {
             // console.log($(this).attr('id')+" "+$(this).prop('checked'))
@@ -51,5 +51,5 @@ $(document).ready(function () {
         })
     })
 
-})
+})()
 

@@ -29,8 +29,8 @@ Route::post('/getMembersNumber', 'MainController@getMembersNumber')->name('getMe
 
 //Auth::routes();
 
-////admin
-Route::group(['middleware' => 'admin'], function () {
+//admin
+Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin', 'Admin\AdminController@index')->name('admin');
     Route::get('/members-list-admin', 'Admin\AdminController@membersListAdmin')->name('members-list-admin');
     Route::post('/changeShow', 'Admin\AdminController@changeShow');

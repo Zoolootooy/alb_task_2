@@ -33,31 +33,29 @@ class AdminController extends Controller
     public function changeShow(Request $request)
     {
         $id = $request->idMember;
-        $show = $request->show;
-        $show = self::showToTinyInt($show);
+        $show = self::showToTinyInt($request->show);
         $person = Person::where('id', $id)->first();
 
         $person->update(compact('id', 'show'));
         $id = $person->id;
 
         if ($id != false) {
-            echo "true";
+            return response()->json(true);
         } else {
-            echo "false";
+            return response()->json(false);
         }
     }
 
     public function changeAllShow(Request $request)
     {
-        $show = $request->show;
-        $show = self::showToTinyInt($show);
+        $show = self::showToTinyInt($request->show);
 
         $id = Person::query()->update(compact('show'));
 
         if ($id != false) {
-            echo "true";
+            return response()->json(true);
         } else {
-            echo "false";
+            return response()->json(false);
         }
     }
 

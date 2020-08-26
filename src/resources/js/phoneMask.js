@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    var maskList = $.masksSort($.masksLoad("json/phone-codes.json"), ['#'], /[0-9]|#/, "mask");
+    var maskList = $.masksSort($.masksLoad("json/phone-codes.json"), ['#'], /[0-9]|#/, "mask")
     var maskOpts = {
         inputmask: {
             definitions: {
@@ -11,8 +11,8 @@ $(document).ready(function () {
             showMaskOnHover: false,
 
             //autoUnmask
-            //true: value will be without mask;
-            //false: value will be with mask;
+            //true: value will be without mask
+            //false: value will be with mask
             autoUnmask: false,
             clearMaskOnLostFocus: false
         },
@@ -22,22 +22,22 @@ $(document).ready(function () {
         listKey: "mask",
         onMaskChange: function (maskObj, determined) {
             if (determined) {
-                var hint = maskObj.name_en;
+                var hint = maskObj.name_en
                 if (maskObj.desc_en && maskObj.desc_en != "") {
-                    hint += " (" + maskObj.desc_en + ")";
+                    hint += " (" + maskObj.desc_en + ")"
                 }
-                $("#descr").html(hint);
+                $("#descr").html(hint)
             } else {
-                $("#descr").html("Mask of input");
+                $("#descr").html("Mask of input")
             }
         }
     };
 
     $('#phone_mask').change(function () {
-        $('#phone').inputmask("remove");
-        $('#phone').inputmasks(maskOpts);
+        $('#phone').inputmask("remove")
+        $('#phone').inputmasks(maskOpts)
     });
 
-    $('#phone_mask').change();
+    $('#phone_mask').change()
 
 })

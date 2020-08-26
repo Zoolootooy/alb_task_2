@@ -2166,13 +2166,10 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
     autoclose: true
   };
   $.datepicker.setDefaults($.datepicker.regional['en']);
-})();
-
-$(document).ready(function () {
   $('#birthdate').datepicker({}).change(function () {
     $(this).valid(); // triggers the validation test
   });
-});
+})();
 
 /***/ }),
 
@@ -2183,7 +2180,7 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-$(document).ready(function () {
+(function () {
   $.ajaxSetup({
     headers: {
       'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
@@ -2231,7 +2228,7 @@ $(document).ready(function () {
       }
     });
   });
-});
+})();
 
 /***/ }),
 
@@ -2254,8 +2251,8 @@ $(document).ready(function () {
       },
       showMaskOnHover: false,
       //autoUnmask
-      //true: value will be without mask;
-      //false: value will be with mask;
+      //true: value will be without mask
+      //false: value will be with mask
       autoUnmask: false,
       clearMaskOnLostFocus: false
     },
@@ -2304,7 +2301,7 @@ function onSecondForm() {
 function funcBeforeFirst() {}
 
 function funcSuccessFirst(data) {
-  if (data == 'true') {
+  if (data == true) {
     $('#first').hide(500);
     $('#second').show(500);
   } else {
@@ -2315,7 +2312,7 @@ function funcSuccessFirst(data) {
 function funcBeforeSecond() {}
 
 function funcSuccessSecond(data) {
-  if (data == 'true') {
+  if (data == true) {
     $('#second').hide(500);
     $('#icons').show(500);
   } else {
@@ -2465,7 +2462,7 @@ function getCookie(name) {
   return matches ? decodeURIComponent(matches[1]) : undefined;
 }
 
-$(document).ready(function () {
+(function () {
   $.ajaxSetup({
     headers: {
       'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
@@ -2489,7 +2486,7 @@ $(document).ready(function () {
   }
 
   $('#icons').hide();
-});
+})();
 
 /***/ }),
 

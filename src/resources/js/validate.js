@@ -10,7 +10,7 @@ function funcBeforeFirst() {
 }
 
 function funcSuccessFirst(data) {
-    if (data == 'true') {
+    if (data == true) {
         $('#first').hide(500)
         $('#second').show(500)
     } else {
@@ -23,7 +23,7 @@ function funcBeforeSecond() {
 }
 
 function funcSuccessSecond(data) {
-    if (data == 'true') {
+    if (data == true) {
         $('#second').hide(500)
         $('#icons').show(500)
     } else {
@@ -183,12 +183,12 @@ function getCookie(name) {
     return matches ? decodeURIComponent(matches[1]) : undefined
 }
 
-$(document).ready(function () {
+(function () {
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
         }
-    });
+    })
 
     $('#btnNextSecond').bind('click', function () {
         $.ajax({
@@ -209,5 +209,5 @@ $(document).ready(function () {
     }
 
     $('#icons').hide()
-})
+})()
 
