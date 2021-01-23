@@ -19,21 +19,12 @@ class AdminController extends Controller
         return response()->view('admin.list', compact('members'));
     }
 
-    public function showToTinyInt($show)
-    {
-        if ($show == "true") {
-            $res = 1;
-        }
-        if ($show == "false") {
-            $res = 0;
-        }
-        return $res;
-    }
+
 
     public function changeShow(Request $request)
     {
         $id = $request->idMember;
-        $show = self::showToTinyInt($request->show);
+        $show = Person::showToTinyInt($request->show);
         $person = Person::where('id', $id)->first();
 
         $person->update(compact('id', 'show'));

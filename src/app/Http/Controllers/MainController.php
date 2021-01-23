@@ -51,7 +51,7 @@ class MainController extends Controller
         $email = $_COOKIE['email'];
         $person = Person::where('id', $id)->where('email', $email)->first();
 
-        $filename = $this->uploadImage($request->file('photo'));
+        $filename = Person::uploadImage($request->file('photo'));
 
         $person->update($request->all());
         if ($filename != null) {
@@ -72,17 +72,6 @@ class MainController extends Controller
         echo $count;
     }
 
-    public function uploadImage($photo)
-    {
-        if (isset($photo) && !empty($photo)) {
-            $filename = $photo->store('images', 'public');
-            $filename = explode('/', $filename)[1];
-        } else {
-            $filename = null;
-        }
-        return $filename;
-
-    }
 
     public function newForm()
     {
