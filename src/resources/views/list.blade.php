@@ -13,6 +13,7 @@
                             <th>Photo</th>
                             <th>Name</th>
                             <th>Report subject</th>
+                            <th>Country</th>
                             <th>Email</th>
                         </tr>
                         </thead>
@@ -24,7 +25,7 @@
                                 @if ($member['photo'] != null)
                                     <td class="td-photo">
                                         <div class="box">
-                                            {{--                                    <img class="profile-img rounded-circle" src="public/images/{{$member->photo}}">--}}
+                                                                                <img class="profile-img rounded-circle" src="public/images/{{$member->photo}}">
                                             @if(preg_match('/^(https?)+[a-z, A-Z, 0-9, \/, \?, \:, \.]+$/', $member->photo) == 1)
                                                 <div class="img_wrapper">
                                                     <img class="profile-img rounded-circle" src="{{$member->photo}}"
@@ -50,6 +51,7 @@
 
                                 <td class="align-middle mw-20">{{ $member->firstname . " " . $member->lastname }}</td>
                                 <td class="align-middle mw-30">{{ $member->rep_subject }}</td>
+                                <td class="align-middle mw-30">{{ $member->country->name }}</td>
                                 <td class="align-middle mw-20"><a
                                         href="{{ 'mailto:' . $member->email}}"> {{$member->email}}</a></td>
                             </tr>

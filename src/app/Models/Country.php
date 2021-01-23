@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Person;
 
 /**
  * App\Models\Country
@@ -28,4 +29,9 @@ class Country extends Model
         'id',
         'name'
     ];
+
+    public function persons()
+    {
+        return $this->hasMany(Person::class, 'country_id');
+    }
 }
