@@ -15,6 +15,7 @@
                             <th class="align-middle">Photo</th>
                             <th class="align-middle">Name</th>
                             <th class="align-middle">Report subject</th>
+                            <th class="align-middle">Country</th>
                             <th class="align-middle">Email</th>
                             <th class="align-middle">Show <input type="checkbox" id="selectAll"></th>
                         </tr>
@@ -53,6 +54,7 @@
 
                                 <td class="align-middle mw-30">{{ $member->firstname . " " . $member->lastname }}</td>
                                 <td class="align-middle mw-25">{{ $member->rep_subject }}</td>
+                                <td class="align-middle mw-30">{{ $member->country->name }}</td>
                                 <td class="align-middle mw-20"><a
                                         href="{{ 'mailto:' . $member->email}}"> {{$member->email}}</a></td>
 

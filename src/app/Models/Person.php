@@ -60,6 +60,11 @@ class Person extends Model
         'show'
     ];
 
+    public function country()
+    {
+        return $this->hasOne(Country::class, 'id');
+    }
+
 
     public static function showToTinyInt($show)
     {
