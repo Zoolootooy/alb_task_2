@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Country;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -58,4 +59,28 @@ class Person extends Model
         'photo',
         'show'
     ];
+
+
+    public static function showToTinyInt($show)
+    {
+        if ($show == "true") {
+            $res = 1;
+        }
+        if ($show == "false") {
+            $res = 0;
+        }
+        return $res;
+    }
+
+    public static function uploadImage($photo)
+    {
+        if (isset($photo) && !empty($photo)) {
+            $filename = $photo->store('images', 'public');
+            $filename = explode('/', $filename)[1];
+        } else {
+            $filename = null;
+        }
+        return $filename;
+
+    }
 }
